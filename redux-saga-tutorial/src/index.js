@@ -13,8 +13,11 @@ axios.defaults.withCredentials = true
 axios.defaults.baseURL = 'http://rem-rest-api.herokuapp.com/api'
 
 const sagaMiddleware = createSagaMiddleware()
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
 
-const store = createStore(reducers, applyMiddleware(sagaMiddleware))
+
+const store = applyMiddleware(sagaMiddleware)(createStore)(reducers, devTools)
+// const store = createStore(reducers, devTools, applyMiddleware(sagaMiddleware)) // do not function in this way
 
 sagaMiddleware.run(rootSaga)
 
