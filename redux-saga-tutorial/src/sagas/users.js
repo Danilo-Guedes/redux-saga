@@ -5,7 +5,7 @@ import * as api from '../api/users'
 //WORKER-SAGA
 function* getUsers () {
     try {
-        const result = yield call(api.getUsers) //waits untill it finish to go to the next line of code
+        const result = yield call(api.getUsers) //waits untill it finishes to go to the next line of code
         // console.log(result);
         yield put(actions.getUsersSuccess({
             items: result.data.data
