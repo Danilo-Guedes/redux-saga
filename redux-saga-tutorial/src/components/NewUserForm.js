@@ -10,8 +10,8 @@ export default function NewUserForm(props) {
         e.preventDefault()
 
         props.onSubmit({
-            first: firstName,
-            last: lastName,
+            firstName,
+            lastName,
         })
 
         setFirstName('')

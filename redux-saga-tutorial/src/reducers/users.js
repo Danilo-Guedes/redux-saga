@@ -10,6 +10,7 @@ export default function users(state = INITIAL_STATE, action) {
             return {
                 items: action.payload.items,
             }
+        
         default: {
             return state
         }
