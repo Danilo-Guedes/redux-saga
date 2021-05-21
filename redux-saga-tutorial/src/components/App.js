@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { getUsersRequest } from '../actions/users'
 import { useDispatch, useSelector } from 'react-redux'
 import UsersList from './UsersList'
+import NewUserForm from './NewUserForm'
 
 /*
 LEARNING ABOUT GENERATORS
@@ -25,12 +26,17 @@ function App() {
     const users = useSelector((state) => state.users)
     const dispatch = useDispatch()
 
+    function handleSubmit ({first, last}) {
+        console.log(first, last);
+    }
+
     useEffect(() => {
         dispatch(getUsersRequest())
     }, [dispatch])
 
     return (
         <div style={{margin: '0 auto', padding: '20px', maxWidth: '600px'}}>
+            <NewUserForm onSubmit={handleSubmit} />
             <UsersList users={users.items} />
         </div>
     )
